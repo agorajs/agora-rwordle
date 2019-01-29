@@ -1,9 +1,9 @@
 {
-  "name": "agora-fta",
-  "version": "0.1.3",
+  "name": "agora-rwordle",
+  "version": "0.1.4",
   "main": "dist/index.js",
   "author": "stardisblue <stardisblue@gmail.com>",
-  "license": "GPLv3",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "tsc"
   },

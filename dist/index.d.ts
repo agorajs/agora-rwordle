@@ -21,5 +21,7 @@
  *  year = {2012},
  * }
  */
-import Algorithm from "agora-algorithm";
-export declare const rWordle: Algorithm.Function;
+export declare const rWordle: import("agora-algorithm/dist/models").Function<{
+    padding: number;
+}>;
+export default rWordle;

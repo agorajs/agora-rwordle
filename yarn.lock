@@ -13,8 +13,8 @@
   integrity sha512-jQ21kQ120mo+IrDs1nFNVm/AsdFxIx2+vZ347DbogHJPd/JzKNMOqU6HCYin1W6v8l5R9XSO2/e9cxmn7HAnVw==
 
 "agora-algorithm@git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git":
-  version "0.1.0"
-  resolved "git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git#e0a5d07e2f944e57242d6b57fd0c76f22509928d"
+  version "0.3.1"
+  resolved "git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git#983545ce657cf35140b1c306873c02b87e238c87"
   dependencies:
     agora-graph "git+ssh://git@gite.lirmm.fr:chen/agora-graph.git"
 

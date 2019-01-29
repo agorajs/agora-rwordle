@@ -38,8 +38,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = __importDefault(require("lodash"));
+var agora_algorithm_1 = require("agora-algorithm");
 var agora_graph_1 = require("agora-graph");
-exports.rWordle = function (graph, options) {
+exports.rWordle = agora_algorithm_1.createFunction(function (graph, options) {
     if (options === void 0) { options = { padding: 0 }; }
     // Sort by Xs
     graph.nodes.sort(function (a, b) { return a.x - b.x; });
@@ -66,7 +67,8 @@ exports.rWordle = function (graph, options) {
     });
     graph.nodes = layedOut;
     return { graph: graph };
-};
+});
+exports.default = exports.rWordle;
 function areOverlapping(list, current) {
     for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
         var s = list_1[_i];

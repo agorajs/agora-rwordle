@@ -23,12 +23,12 @@
  */
 
 import _ from "lodash";
-import Algorithm from "agora-algorithm";
-import { Node, sum, overlap } from "agora-graph";
+import { createFunction } from "agora-algorithm";
+import { Node, sum, overlap, Graph } from "agora-graph";
 
-export const rWordle: Algorithm.Function = function(
+export const rWordle = createFunction(function(
   graph,
-  options = { padding: 0 }
+  options: { padding: number } = { padding: 0 }
 ) {
   // Sort by Xs
   graph.nodes.sort((a, b) => a.x - b.x);
@@ -63,7 +63,9 @@ export const rWordle: Algorithm.Function = function(
 
   graph.nodes = layedOut;
   return { graph };
-};
+});
+
+export default rWordle;
 
 function areOverlapping(list: Node[], current: Node) {
   for (const s of list) {
