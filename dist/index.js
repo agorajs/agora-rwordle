@@ -77,7 +77,3 @@ function hasOverlap(alreadyLayouted, current) {
     }
     return false;
 }
-exports.rWordleC = agora_algorithm_1.createFunction(function (graph, options) {
-    if (options === void 0) { options = { padding: 0 }; }
-    return { graph: graph };
-});

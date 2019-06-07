@@ -25,6 +25,3 @@ export declare const rWordleL: import("agora-algorithm").Function<{
     padding: number;
 }>;
 export default rWordleL;
-export declare const rWordleC: import("agora-algorithm").Function<{
-    padding: number;
-}>;
