@@ -1,6 +1,6 @@
 {
   "name": "agora-rwordle",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "author": "stardisblue <stardisblue@gmail.com>",
   "license": "GPL-3.0-or-later",
