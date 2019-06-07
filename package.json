@@ -8,9 +8,12 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.116",
-    "agora-algorithm": "git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git",
-    "agora-graph": "git+ssh://git@gite.lirmm.fr:chen/agora-graph.git",
+    "@types/lodash": "^4.14.134",
+    "agora-algorithm": "git+ssh://git@gite.lirmm.fr/chen/agora-algorithm.git#semver:^0.4.0",
+    "agora-graph": "git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#semver:^0.1.0",
     "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "typescript": "^3.5.1"
   }
 }

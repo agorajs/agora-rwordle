@@ -40,41 +40,44 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = __importDefault(require("lodash"));
 var agora_algorithm_1 = require("agora-algorithm");
 var agora_graph_1 = require("agora-graph");
-exports.rWordle = agora_algorithm_1.createFunction(function (graph, options) {
+exports.rWordleL = agora_algorithm_1.createFunction(function (graph, options) {
     if (options === void 0) { options = { padding: 0 }; }
     // Sort by Xs
     graph.nodes.sort(function (a, b) { return a.x - b.x; });
-    var layedOut = [];
+    var layouted = [];
     lodash_1.default.forEach(graph.nodes, function (cur) {
         var t = 3.0;
-        var minSide = Math.min(cur.height, cur.width);
-        var spiralFactor = minSide / 17;
-        var spiralStep = minSide / 10;
-        // We copy the current object so we can translate it in peace
-        var translatedNode = __assign({}, cur);
+        var minSide = Math.min(cur.width, cur.height);
+        // spiral depending on the size of the object
+        var spiralFactor = minSide / 17.0;
+        var spiralStep = minSide / 10.0;
         while (true) {
             var tx = Math.sin(t) * t * spiralFactor;
             var ty = Math.cos(t) * t * spiralFactor;
-            // applying translation (translatedNode is mutated)
-            lodash_1.default.assign(translatedNode, agora_graph_1.sum(cur, { x: tx, y: ty }));
-            if (!areOverlapping(layedOut, translatedNode)) {
+            // transformed object
+            var transformedArea = __assign({}, cur, agora_graph_1.sum(cur, { x: tx, y: ty }));
+            if (!hasOverlap(layouted, transformedArea)) {
                 // found placement
-                layedOut.push(translatedNode);
+                layouted.push(transformedArea);
                 break;
             }
             t += spiralStep / t;
         }
     });
-    graph.nodes = layedOut;
+    graph.nodes = layouted;
     return { graph: graph };
 });
-exports.default = exports.rWordle;
-function areOverlapping(list, current) {
-    for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-        var s = list_1[_i];
+exports.default = exports.rWordleL;
+function hasOverlap(alreadyLayouted, current) {
+    for (var _i = 0, alreadyLayouted_1 = alreadyLayouted; _i < alreadyLayouted_1.length; _i++) {
+        var s = alreadyLayouted_1[_i];
         if (agora_graph_1.overlap(s, current)) {
             return true;
         }
     }
     return false;
 }
+exports.rWordleC = agora_algorithm_1.createFunction(function (graph, options) {
+    if (options === void 0) { options = { padding: 0 }; }
+    return { graph: graph };
+});

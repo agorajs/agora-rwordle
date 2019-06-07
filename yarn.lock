@@ -12,15 +12,20 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.120.tgz#cf265d06f6c7a710db087ed07523ab8c1a24047b"
   integrity sha512-jQ21kQ120mo+IrDs1nFNVm/AsdFxIx2+vZ347DbogHJPd/JzKNMOqU6HCYin1W6v8l5R9XSO2/e9cxmn7HAnVw==
 
-"agora-algorithm@git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git":
-  version "0.3.1"
-  resolved "git+ssh://git@gite.lirmm.fr:chen/agora-algorithm.git#983545ce657cf35140b1c306873c02b87e238c87"
-  dependencies:
-    agora-graph "git+ssh://git@gite.lirmm.fr:chen/agora-graph.git"
+"@types/lodash@^4.14.134":
+  version "4.14.134"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.134.tgz#9032b440122db3a2a56200e91191996161dde5b9"
+  integrity sha512-2/O0khFUCFeDlbi7sZ7ZFRCcT812fAeOLm7Ev4KbwASkZ575TDrDcY7YyaoHdTOzKcNbfiwLYZqPmoC4wadrsw==
 
-"agora-graph@git+ssh://git@gite.lirmm.fr:chen/agora-graph.git":
-  version "0.0.0"
-  resolved "git+ssh://git@gite.lirmm.fr:chen/agora-graph.git#bf5f5be2a725c486e3e35074ad4da1edf257feae"
+"agora-algorithm@git+ssh://git@gite.lirmm.fr/chen/agora-algorithm.git#semver:^0.4.0":
+  version "0.4.0"
+  resolved "git+ssh://git@gite.lirmm.fr/chen/agora-algorithm.git#170277b095fd73c6fc38a7e70d5428d892fe7e0f"
+  dependencies:
+    agora-graph "git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#semver:^0.1.0"
+
+"agora-graph@git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#semver:^0.1.0":
+  version "0.1.0"
+  resolved "git+ssh://git@gite.lirmm.fr/chen/agora-graph.git#1944ff000404cba64bdc6d5550ebf0814bfdf629"
   dependencies:
     "@types/delaunator" "^2.0.0"
     "@types/lodash" "^4.14.116"
@@ -36,3 +41,8 @@ lodash@^4.17.11:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+typescript@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.1.tgz#ba72a6a600b2158139c5dd8850f700e231464202"
+  integrity sha512-64HkdiRv1yYZsSe4xC1WVgamNigVYjlssIoaH2HcZF0+ijsk5YK2g0G34w9wJkze8+5ow4STd22AynfO6ZYYLw==
