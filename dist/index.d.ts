@@ -21,7 +21,11 @@
  *  year = {2012},
  * }
  */
-export declare const rWordleL: import("agora-algorithm").Function<{
+import { Algorithm } from 'agora-graph';
+export declare const rWordleL: import("agora-graph").Function<{
+    padding: number;
+}>;
+export declare const RWordleLAlgorithm: Algorithm<{
     padding: number;
 }>;
 export default rWordleL;

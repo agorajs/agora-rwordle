@@ -38,9 +38,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = __importDefault(require("lodash"));
-var agora_algorithm_1 = require("agora-algorithm");
 var agora_graph_1 = require("agora-graph");
-exports.rWordleL = agora_algorithm_1.createFunction(function (graph, options) {
+exports.rWordleL = agora_graph_1.createFunction(function (graph, options) {
     if (options === void 0) { options = { padding: 0 }; }
     // Sort by Xs
     graph.nodes.sort(function (a, b) { return a.x - b.x; });
@@ -55,7 +54,7 @@ exports.rWordleL = agora_algorithm_1.createFunction(function (graph, options) {
             var tx = Math.sin(t) * t * spiralFactor;
             var ty = Math.cos(t) * t * spiralFactor;
             // transformed object
-            var transformedArea = __assign({}, cur, agora_graph_1.sum(cur, { x: tx, y: ty }));
+            var transformedArea = __assign(__assign({}, cur), agora_graph_1.sum(cur, { x: tx, y: ty }));
             if (!hasOverlap(layouted, transformedArea)) {
                 // found placement
                 layouted.push(transformedArea);
@@ -67,6 +66,10 @@ exports.rWordleL = agora_algorithm_1.createFunction(function (graph, options) {
     graph.nodes = layouted;
     return { graph: graph };
 });
+exports.RWordleLAlgorithm = {
+    name: 'RWordleL',
+    algorithm: exports.rWordleL
+};
 exports.default = exports.rWordleL;
 function hasOverlap(alreadyLayouted, current) {
     for (var _i = 0, alreadyLayouted_1 = alreadyLayouted; _i < alreadyLayouted_1.length; _i++) {
