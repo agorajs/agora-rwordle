@@ -23,8 +23,7 @@
  */
 
 import _ from 'lodash';
-import { createFunction } from 'agora-algorithm';
-import { Node, sum, overlap, Graph } from 'agora-graph';
+import { Node, sum, overlap, createFunction, Algorithm } from 'agora-graph';
 
 export const rWordleL = createFunction(function(
   graph,
@@ -63,6 +62,11 @@ export const rWordleL = createFunction(function(
   graph.nodes = layouted;
   return { graph };
 });
+
+export const RWordleLAlgorithm: Algorithm<{ padding: number }> = {
+  name: 'RWordleL',
+  algorithm: rWordleL
+};
 
 export default rWordleL;
 
