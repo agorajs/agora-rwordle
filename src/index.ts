@@ -24,8 +24,8 @@
 
 import _ from 'lodash';
 
-import {  sum, overlap, createFunction , } from 'agora-graph';
-import type {Node, Algorithm} from "agora-graph"
+import { sum, overlap, createFunction } from 'agora-graph';
+import type { Node, Algorithm } from 'agora-graph';
 export const rWordleL = createFunction(function (
   graph,
   options: { padding: number } = { padding: 0 }
@@ -50,7 +50,7 @@ export const rWordleL = createFunction(function (
       // transformed object
       const transformedArea = {
         ...cur,
-        ...sum(cur, { x: tx, y: ty })
+        ...sum(cur, { x: tx, y: ty }),
       };
       if (!hasOverlap(layouted, transformedArea)) {
         // found placement
@@ -67,7 +67,7 @@ export const rWordleL = createFunction(function (
 
 export const RWordleLAlgorithm: Algorithm<{ padding: number }> = {
   name: 'RWordleL',
-  algorithm: rWordleL
+  algorithm: rWordleL,
 };
 
 export default rWordleL;
