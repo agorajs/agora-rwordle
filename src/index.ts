@@ -22,11 +22,11 @@
  * }
  */
 
-import _ from "lodash";
-import { createFunction } from "agora-algorithm";
-import { Node, sum, overlap, Graph } from "agora-graph";
+import _ from 'lodash';
 
-export const rWordle = createFunction(function(
+import { Node, sum, overlap, createFunction } from 'agora-graph';
+
+export const rWordle = createFunction(function (
   graph,
   options: { padding: number } = { padding: 0 }
 ) {
@@ -35,7 +35,7 @@ export const rWordle = createFunction(function(
 
   const layedOut: Node[] = [];
 
-  _.forEach(graph.nodes, function(cur) {
+  _.forEach(graph.nodes, function (cur) {
     let t = 3.0;
     const minSide = Math.min(cur.height, cur.width);
     const spiralFactor = minSide / 17;
@@ -43,7 +43,7 @@ export const rWordle = createFunction(function(
 
     // We copy the current object so we can translate it in peace
     const translatedNode: Node = {
-      ...cur
+      ...cur,
     };
     while (true) {
       const tx = Math.sin(t) * t * spiralFactor;

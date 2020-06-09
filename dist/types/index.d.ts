@@ -21,7 +21,8 @@
  *  year = {2012},
  * }
  */
-export declare const rWordle: import("agora-algorithm/dist/models").Function<{
+export declare const rWordle: import("agora-graph").Function<{
     padding: number;
 }>;
 export default rWordle;
+//# sourceMappingURL=index.d.ts.map
