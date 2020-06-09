@@ -24,51 +24,56 @@
 
 import _ from 'lodash';
 
-import { Node, sum, overlap, createFunction } from 'agora-graph';
-
-export const rWordle = createFunction(function (
+import {  sum, overlap, createFunction , } from 'agora-graph';
+import type {Node, Algorithm} from "agora-graph"
+export const rWordleL = createFunction(function (
   graph,
   options: { padding: number } = { padding: 0 }
 ) {
   // Sort by Xs
   graph.nodes.sort((a, b) => a.x - b.x);
 
-  const layedOut: Node[] = [];
+  const layouted: Node[] = [];
 
   _.forEach(graph.nodes, function (cur) {
     let t = 3.0;
-    const minSide = Math.min(cur.height, cur.width);
-    const spiralFactor = minSide / 17;
-    const spiralStep = minSide / 10;
+    const minSide = Math.min(cur.width, cur.height);
+    // spiral depending on the size of the object
+    const spiralFactor = minSide / 17.0;
+    const spiralStep = minSide / 10.0;
 
     // We copy the current object so we can translate it in peace
-    const translatedNode: Node = {
-      ...cur,
-    };
     while (true) {
       const tx = Math.sin(t) * t * spiralFactor;
       const ty = Math.cos(t) * t * spiralFactor;
 
-      // applying translation (translatedNode is mutated)
-      _.assign(translatedNode, sum(cur, { x: tx, y: ty }));
-
-      if (!areOverlapping(layedOut, translatedNode)) {
+      // transformed object
+      const transformedArea = {
+        ...cur,
+        ...sum(cur, { x: tx, y: ty })
+      };
+      if (!hasOverlap(layouted, transformedArea)) {
         // found placement
-        layedOut.push(translatedNode);
+        layouted.push(transformedArea);
         break;
       }
       t += spiralStep / t;
     }
   });
 
-  graph.nodes = layedOut;
+  graph.nodes = layouted;
   return { graph };
 });
 
-export default rWordle;
+export const RWordleLAlgorithm: Algorithm<{ padding: number }> = {
+  name: 'RWordleL',
+  algorithm: rWordleL
+};
 
-function areOverlapping(list: Node[], current: Node) {
-  for (const s of list) {
+export default rWordleL;
+
+function hasOverlap(alreadyLayouted: Node[], current: Node) {
+  for (const s of alreadyLayouted) {
     if (overlap(s, current)) {
       return true;
     }
