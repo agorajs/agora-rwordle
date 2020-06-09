@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import 'delaunator';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
